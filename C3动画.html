@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+                /*调用C3动画属性:动画名称 执行时长 匀速 循环播放*/
+				animation: xuanZhuan 1s linear infinite;
+			}
+			/*定义C3动画*/
+			@keyframes xuanZhuan{
+				from{transform: translateX(0px) translateY(0px) rotate(0deg);
+					background: red;}
+				25%{transform: translateX(500px) translateY(0px) rotate(80deg);
+					background: black;
+				}
+				50%{transform: translateX(500px) translateY(500px) rotate(160deg);
+					background: blue;
+				}
+				75%{transform: translateX(0px) translateY(500px) rotate(240deg);
+					background: green;
+				}
+				to%{background: pink;
+					transform: translateX(0px) translateY(0px) rotate(0deg);}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		
+	</body>
+</html>

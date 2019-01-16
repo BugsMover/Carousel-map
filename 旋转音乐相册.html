@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			body{
+				background: black;
+			}
+			#box{
+				height: 300px;
+				width: 300px;
+				position: fixed;
+				top: 0;left: 0;right: 0;bottom: 0;
+				margin: auto auto;
+				transform-style:preserve-3d ;/*3D转换*/
+				animation: xuanZhuan 30s linear infinite;
+			}
+			#box img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			#box img:nth-child(1){
+				transform: translateZ(700px);
+			}
+			#box img:nth-child(2){
+				transform: rotateY(36deg) translateZ(700px);
+			}
+			#box img:nth-child(3){
+				transform: rotateY(72deg) translateZ(700px);
+			}
+			#box img:nth-child(4){
+				transform: rotateY(108deg) translateZ(700px);
+			}
+			#box img:nth-child(5){
+				transform: rotateY(144deg) translateZ(700px);
+			}
+			#box img:nth-child(6){
+				transform: rotateY(180deg) translateZ(700px);
+			}
+			#box img:nth-child(7){
+				transform: rotateY(216deg) translateZ(700px);
+			}
+			#box img:nth-child(8){
+				transform: rotateY(252deg) translateZ(700px);
+			}
+			#box img:nth-child(9){
+				transform: rotateY(288deg) translateZ(700px);
+			}
+			#box img:nth-child(10){
+				transform: rotateY(324deg) translateZ(700px);
+			}
+			@keyframes xuanZhuan{
+				from{transform: rotateX(0) rotateY(0);}
+				25%{transform: rotateX(30deg) rotateY(180deg);}
+				50%{transform: rotateX(0) rotateY(360deg);}
+				75%{transform: rotateX(-30deg) rotateY(540deg);}
+				to{transform: rotateX(0) rotateY(720deg);}
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/1.jpg" />
+			<img src="img/2.jpg" />
+			<img src="img/3.jpg" />
+			<img src="img/4.jpg" />
+			<img src="img/5.jpg" />
+			<img src="img/6.jpg" />
+			<img src="img/7.jpg" />
+			<img src="img/8.jpg" />
+			<img src="img/9.jpg" />
+			<img src="img/10.jpg" />
+		</div>
+		<audio id="music"autoplay="autoplay" src="mp3/1.mp3"></audio>
+	</body>
+	<script type="text/javascript">
+		/*通过标签名找元素 返回是数组 */
+		var img =document.getElementsByTagName('img');
+		console.log(img);
+		var music = document.getElementById('music');
+		/*img[0].onclick=function(){
+			music.src='mp3/1.mp3';
+		}
+		img[0].onclick=function(){
+			music.src='mp3/2.mp3';
+		}*/
+		for(let i=0;i<img.length;i++){
+			img[i].onclick=function(){
+				music.src='mp3/"+(i+1)+".mp3';
+			}
+		}
+	</script>
+
+</html>

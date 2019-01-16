@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 520px;
+				height: 280px;
+				margin: 150px auto;
+				overflow: hidden;
+			}	
+			/*选择器 ，选择器 （群组选择器，用逗号隔开） 	*/
+			ul,li{
+			/*清楚列表默认样式*/
+				list-style: none;
+			}
+			.list{
+				width: 3120px;
+				height: 100%;
+				animation: lunBo 10s infinite;
+			}
+			.list li{
+				float: left;
+			}
+			@keyframes lunBo{
+				from{transform: translateX(0);}
+				20%{transform: translateX(-520px);}
+				40%{transform: translateX(-1040px);}
+				60%{transform: translateX(-1560px);}
+				80%{transform: translateX(-2080px);}
+				to{transform: translateX(-2600px);}
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="list">
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/1.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>
