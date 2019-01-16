@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#box{
+				width: 520px;
+				height: 280px;
+				margin: 200px auto;
+				position: relative;
+				overflow: hidden;
+				
+			}
+			ul,li{
+				list-style: none;
+			}
+			.list{
+				/*width: 3120px;*/
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.list li{
+				float: left;
+			}
+			.list li img{
+				width: 1040px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="list">
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/1.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var list = document.getElementsByClassName("list")[0];
+		var idx=0;
+		//获取图片宽度
+		var imgWid = list.children[0].children[0].offsetWidth;
+		console.log(imgWid);
+		//把第一个li复制添加ul里面
+		var firstLi=list.children[0].cloneNode(true);
+		console.log(firstLi);
+		list.appendChild(firstLi);
+		//获取ul滚动子元素里面的子元素数量
+		var liLength =list.children.length;
+		console.log(liLength);
+		//设置ul宽度
+		list.style.width=imgWid*liLength+"px";
+		var time=setInterval(function(){
+			idx++;//自增下标
+			if(idx==liLength){
+				idx=1;
+				list.style.left=0;
+			}
+			var time2=setInterval(function(){
+				//获取滚动元素当前的left值
+				var listLeft=list.offsetLeft;
+//				console.log(listLeft);
+				/*定义每次到达目标值*/
+				var target=-idx*imgWid;
+				//速度
+				var speed = (listLeft-target)/10;
+				//三目运算：不让速度为0
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(listLeft==target){
+					clearInterval(time2);
+				}
+				list.style.left=listLeft-speed+"px";
+			},30)
+		},3000)
+	</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="btn" style="width: 50px;height: 50px;background: #ccc;"> 
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		for(var i=0;i<200;i++){
+			document.write("<div>你是第"+i+"个逗逼</div>")
+		}
+		var btn = document.getElementById("btn");
+		var time;
+		btn.style.position="fixed";/*固定定位*/
+		btn.style.right="50px";
+		btn.style.bottom="50px";
+		btn.style.lineHeight="50px";
+		btn.style.textAlign="center";
+		btn.onclick=function(){
+		 time=setInterval(function(){
+			  //获取当前滚动条Y轴距离
+			  var scrollY=window.scrollY;
+			  console.log(scrollY);
+			  //定义速度
+			  var speed=scrollY/2;
+			  //定义每次到达的目标值
+			  var target = scrollY-speed;
+			  if(target==0){
+			  	clearInterval(time);
+			  }
+			  //设置滚动条距离语句：参数1代表为x轴滚动条 参数2是y轴
+			  window.scrollTo(0,target);
+			},100)
+		}
+//当元素滚动条被滚动时监听
+//		window.onscroll=function(){
+//			clearInterval(time);
+//		}
+//当鼠标滚动正在滚动时监听
+//document.body.onmousewheel
+        window.onmousewheel=function(){
+        	clearInterval(time);
+        }
+	</script>
+</html>
